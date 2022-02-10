@@ -1,9 +1,10 @@
-<script setup>
-</script>
-
-<template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+<template lang="pug">
+div hello
 </template>
 
-<style>
+<script lang="ts">
+
+</script>
+<style lang="scss" scoped>
+
 </style>
