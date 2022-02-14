@@ -9,7 +9,7 @@
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
-        "allowJs": false,
+        "allowJs": true,
         "noEmit": true,
 		"lib": [
 			"esnext",
@@ -23,11 +23,9 @@
 			"vite/client",
 			"element-plus/global"
 		],
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
-			"@/*": [
-				"src/*"
-			]
+			"@/*": ["*","src/*"]
 		}
 	},
 	"include": [
