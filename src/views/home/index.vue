@@ -1,17 +1,11 @@
 <template lang="pug">
-router-view
+div.home home
 </template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
-
 export default defineComponent({
-    setup() {
-        
-    },
+  
 })
 </script>
-
-<style lang="scss">
-@import "@/assets/css/index.scss"
+<style lang="scss" scoped>
 </style>

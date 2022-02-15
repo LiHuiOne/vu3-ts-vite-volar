@@ -1,7 +1,6 @@
 <template lang="pug">
-router-view
+div 登录
 </template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
@@ -11,7 +10,3 @@ export default defineComponent({
     },
 })
 </script>
-
-<style lang="scss">
-@import "@/assets/css/index.scss"
-</style>
