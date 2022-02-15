@@ -14,12 +14,7 @@ template(v-if="menuDataArr.length>0")
 			el-menu-item(:index="menuItem.name" @click="toCurrentPage(menuItem)")
 				el-icon
 					component(:is="menuItem.meta.icon")
-				span {{menuItem.meta.title}}
-template(v-else)
-	el-menu-item(:index="menuDataArr.name"  @click="toCurrentPage(menuDataArr)")
-		el-icon
-			component(:is="menuDataArr.meta.icon")
-		span {{menuDataArr.meta.title}}
+				template(#title) {{menuItem.meta.title}}
 </template>
 <script lang="ts">
 import router from '@/router'
