@@ -13,6 +13,7 @@ const router = createRouter({
         {
             path:'/',
             component: () => import(/* webpackChunkName: layout */ '@/views/layout/index.vue'),
+            redirect:'/home',
             children:[
                 ...menuRouter
             ]

@@ -36,3 +36,5 @@
     npm i vuex@4.0.0 -D
 ### ⑨：安装css编译sass sass-loader
     npm i sass@1.24.0 sass-loader@8.0.0 -D
+### ⑩：安装axios，并添加配置
+    npm  i axios -D

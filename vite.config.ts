@@ -9,7 +9,9 @@ export default defineConfig({
 		port: 3333,
 		open: true,
 		proxy: {
-
+			'/api_server/v1': {
+				target:'http://localhost:8088/'
+			},
 		}
 	},
 	resolve:{
@@ -17,5 +19,7 @@ export default defineConfig({
 			'@': resolve(__dirname, 'src')
 		}
 	},
-	plugins: [vue()]
+	plugins: [
+		vue()
+	]
 })
