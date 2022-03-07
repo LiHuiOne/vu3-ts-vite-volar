@@ -43,6 +43,8 @@ export default defineComponent({
         background: #003670;
     }
     .layout_menu{
+        height: 100%;
+        float: left;
         .collaspe{
             height: 56px;
             text-align: center;
@@ -54,12 +56,11 @@ export default defineComponent({
         }
     }
     .layout_main {
-        display: flex;
+        // display: flex;
         height: calc(100% - 50px);
         overflow: hidden;
         .layout_main_content{
             height: 100%;
-            width: 100%;
             overflow-y:scroll;
             background: #f4f5f9;
             box-sizing: border-box;
