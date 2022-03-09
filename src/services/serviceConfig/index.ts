@@ -15,10 +15,14 @@ axios.defaults.headers.post['Content-Type'] = 'application/json'
 //请求拦截
 axios.interceptors.request.use(
     (config:any)=>{
+        console.log(config)
         if(localStorage.getItem('_token')){
             //Bearer:在某些情况下，这可以是一种无状态授权机制。
             //服务器的受保护路由将检查Authorization标头中是否存在有效的 JWT，如果存在，则允许用户访问受保护的资源。
-            config.headers.Authorization = `Bearer ${localStorage.getItem("_token")}`;
+            // config.headers.Authorization = `Bearer ${localStorage.getItem("_token")}`;
+            config.headers['access_token'] = `${localStorage.getItem("_token")}`;
+            //请求params里添加token
+            config.params['access_token'] = `${localStorage.getItem("_token")}`;
         }
         return config
     }
@@ -27,7 +31,19 @@ axios.interceptors.request.use(
 //响应拦截
 axios.interceptors.response.use(
     (response)=>{
-        return response
+        let data = response.data
+        if(data.code=='1'){
+            localStorage.removeItem('_token')
+            ElMessage.error({
+                message: data.msg
+            });
+            window.location.reload()
+            return
+        }
+        if(typeof data=='string'){
+            return JSON.parse(data)
+        }
+        return data
     },(err)=>{
         if (err && err.response) {
             switch (err.response.status) {
@@ -37,7 +53,7 @@ axios.interceptors.response.use(
                 case 401:
                     err.message = "token过期，请重新登录";
                     //  可以在此移除本地缓存
-                    localStorage.removeItem('access_token')
+                    localStorage.removeItem('_token')
                     break;
                 case 403:
                     err.message = "拒绝访问";

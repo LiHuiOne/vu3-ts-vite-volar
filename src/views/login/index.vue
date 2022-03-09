@@ -47,10 +47,12 @@ export default defineComponent({
             }
             proxy.$api.userLogin(params).then((res:any)=>{
                 console.log(res)
-                localStorage.setItem('_token',res.data.data.access_token)
+                localStorage.setItem('_token',res.data.access_token)
                 proxy.$router.push({
                     path:'/home'
                 })
+            }).catch((err:any)=>{
+                proxy.$message.error(err.msg)
             })
         }
         onMounted(()=>{
