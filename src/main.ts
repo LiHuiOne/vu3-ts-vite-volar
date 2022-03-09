@@ -9,6 +9,7 @@ import 'dayjs/locale/zh-cn' //中文
 import * as ELIcons from '@element-plus/icons-vue'
 import '@/permission'
 import api from '@/services/interface'
+import table from '@/components/table/index.vue'
 const iconList:any = ELIcons
 const app = createApp(App)
 for (let iconName in ELIcons) {
@@ -16,4 +17,6 @@ for (let iconName in ELIcons) {
 }
 //将api方法挂载到原型上
 app.config.globalProperties.$api=api
+//挂载全局组件
+app.component('qz-table',table)
 app.use(ElementPlus,{ locale }).use(router).use(store).mount('#app')
