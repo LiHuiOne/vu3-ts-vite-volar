@@ -10,6 +10,7 @@ import * as ELIcons from '@element-plus/icons-vue'
 import '@/permission'
 import api from '@/services/interface'
 import table from '@/components/table/index.vue'
+import search from '@/components/search_component/index.vue'
 const iconList:any = ELIcons
 const app = createApp(App)
 for (let iconName in ELIcons) {
@@ -19,4 +20,5 @@ for (let iconName in ELIcons) {
 app.config.globalProperties.$api=api
 //挂载全局组件
 app.component('qz-table',table)
+app.component('qz-search',search)
 app.use(ElementPlus,{ locale }).use(router).use(store).mount('#app')
