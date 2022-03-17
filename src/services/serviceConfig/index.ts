@@ -4,10 +4,6 @@ const axios  = Axios.create({
     baseURL:'/api_server/v1',
     withCredentials:true,// 允许携带cookie
     timeout:20000,
-    headers:{
-        //axios异步访问
-        "X-Requested-With":"XMLHttpRequest"
-    }
 })
 // 默认使用 application/json 形式
 axios.defaults.headers.post['Content-Type'] = 'application/json'
@@ -33,11 +29,12 @@ axios.interceptors.response.use(
     (response)=>{
         let data = response.data
         if(data.code=='1'){
-            localStorage.removeItem('_token')
+            console.log("pppp")
+            // localStorage.removeItem('_token')
             ElMessage.error({
                 message: data.msg
             });
-            window.location.reload()
+            //window.location.reload()
             return
         }
         if(typeof data=='string'){
@@ -53,7 +50,7 @@ axios.interceptors.response.use(
                 case 401:
                     err.message = "token过期，请重新登录";
                     //  可以在此移除本地缓存
-                    localStorage.removeItem('_token')
+                    //localStorage.removeItem('_token')
                     break;
                 case 403:
                     err.message = "拒绝访问";
