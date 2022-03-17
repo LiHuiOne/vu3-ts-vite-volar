@@ -40,3 +40,7 @@
     npm  i axios -D
 ### 十一：安装echarts
     npm i echarts -D
+
+### 十二：安装element-resize-detector(解决窗口变化图标的自适应问题)
+    npm i element-resize-detector
+    注意：引入时报找不到element-resize-detector模块问题，请看项目中devNote.md

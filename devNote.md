@@ -31,3 +31,7 @@
 	}
 ## 动态引入图标：使用component，因为图标是组件形式的
 	component(:is="menuItem.meta.icon")
+
+## 安装element-resize-detector插件typeScript 引入时报找不到element-resize-detector模块问题
+	方法一：在declare.d.ts文件添加 declare module' element-resize-detector'
+	方法二：npm i --save-dev @types/element-resize-detector
